@@ -33,7 +33,7 @@ namespace Domain.JetModule
             return Id.GetHashCode();
         }
 
-        public static JetId NewProductId()
+        public static JetId NewJetId()
         {
             return new JetId(Guid.NewGuid());
         }

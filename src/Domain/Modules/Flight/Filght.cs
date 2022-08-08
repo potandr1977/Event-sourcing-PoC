@@ -35,7 +35,7 @@ namespace Domain
             RaiseEvent(new FlightCreatedEvent(flightId, jetId));
         }
 
-        public void AddProduct(TicketId ticketId, int quantity)
+        public void AddTicket(TicketId ticketId, int quantity)
         {
             if (ticketId == null)
             {
@@ -53,7 +53,7 @@ namespace Domain
         {
             if (!ContainsTicket(ticketId))
             {
-                throw new FlightException($"Product {ticketId} not found");
+                throw new FlightException($"Ticket {ticketId} not found");
             }
             CheckQuantity(ticketId, quantity);
             RaiseEvent(new TicketReservationCancelledEvent(ticketId, GetFlightItemByProduct(ticketId).Quantity, quantity));

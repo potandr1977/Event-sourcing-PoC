@@ -33,7 +33,7 @@ namespace Domain.TicketModule
             return Id.GetHashCode();
         }
 
-        public static TicketId NewProductId()
+        public static TicketId NewTicketId()
         {
             return new TicketId(Guid.NewGuid());
         }

@@ -12,13 +12,13 @@ namespace Domain.Modules.FlightModule.Events
         {
         }
 
-        internal TicketReservedEvent(TicketId ticketId, int quantity) : base()
+        public TicketReservedEvent(TicketId ticketId, int quantity) : base()
         {
             TicketId = ticketId;
             Quantity = quantity;
         }
 
-        internal TicketReservedEvent(FlightId aggregateId, long aggregateVersion, TicketId ticketId, int quantity) : base(aggregateId, aggregateVersion)
+        public TicketReservedEvent(FlightId aggregateId, long aggregateVersion, TicketId ticketId, int quantity) : base(aggregateId, aggregateVersion)
         {
             TicketId = ticketId;
             Quantity = quantity;
