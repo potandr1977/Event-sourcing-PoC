@@ -56,7 +56,7 @@ namespace Domain
                 throw new FlightException($"Ticket {ticketId} not found");
             }
             CheckQuantity(ticketId, quantity);
-            RaiseEvent(new TicketReservationCancelledEvent(ticketId, GetFlightItemByProduct(ticketId).Quantity, quantity));
+            RaiseEvent(new TicketReservationCancelledEvent(ticketId, GetFlightItemByTicket(ticketId).Quantity, quantity));
         }
 
         public override string ToString()
@@ -88,7 +88,7 @@ namespace Domain
             return Items.Any(x => x.TicketId == ticketId);
         }
 
-        private Seat GetFlightItemByProduct(TicketId ticketId)
+        private Seat GetFlightItemByTicket(TicketId ticketId)
         {
             return Items.Single(x => x.TicketId == ticketId);
         }
