@@ -10,6 +10,6 @@ namespace Application.Services
 
         Task<IEnumerable<Flight>> FindAllAsync(Expression<Func<Flight, bool>> predicate);
 
-        Task<IEnumerable<Seat>> GetItemsOfAsync(string flightId);
+        Task<IEnumerable<Seat>> GetBookedSeatsAmountAsync(string flightId);
     }
 }

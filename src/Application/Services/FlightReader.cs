@@ -17,7 +17,7 @@ namespace Application.Services
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Seat>> GetItemsOfAsync(string flightId)
+        public Task<IEnumerable<Seat>> GetBookedSeatsAmountAsync(string flightId)
         {
             throw new NotImplementedException();
         }

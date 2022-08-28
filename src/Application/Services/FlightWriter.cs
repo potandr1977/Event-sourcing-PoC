@@ -1,16 +1,18 @@
 ﻿using Domain;
 using Domain.Modules.FlightModule;
-using Domain.Modules.FlightModule.Events;
 using Domain.Persistence;
-using Domain.TicketModule;
 
 namespace Application.Services
 {
     public class FlightWriter : IFlightWriter
     {
-        public Task AddTicketAsync(string flightId, string ticketId, int quantity)
+        private readonly IRepository<Flight, FlightId> flightRepository;
+
+        public async Task AddTicketAsync(string flightId, string ticketId, int quantity)
         {
-            throw new NotImplementedException();
+            var flight = await flightRepository.GetByIdAsync(new FlightId(flightId));
+
+            flight.AddTicket(new Domain.TicketModule.TicketId(ticketId), quantity);
         }
 
         public Task ChangeTicketQuantityAsync(string flightId, string ticketId, int quantity)
